@@ -208,12 +208,14 @@ MEDIA QUERIES (DESKTOP ONLY)
     /* NAV */
     .nav-list {
         /* use flex to make adjust the navigation links */
+        display: flex;
     }
 
     .nav-list li {
         border-bottom: none;
         border-right: 1px solid #EA85A3;
         /* think about a flex property which can help you to adjust the size */
+        flex-grow: 1;
     }
 
     .nav-list li:last-child {
@@ -223,32 +225,55 @@ MEDIA QUERIES (DESKTOP ONLY)
     /* CARDS */
     .cards {
         /* use grid here to create 3 columns */
+        display: grid;
+        grid-template-columns: repeat(3,1fr);
+        gap: 2rem;
     }
 
     .cards h2 {
         /* use span or line numbering to make sure heading takes three columns */
+        grid-column: 1/4;
     }
 
     /* NEWS – SAME AS YOUR ORIGINAL */
     .news {
         /* Use grid to create two columns and use area to place the items */
-        
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+        grid-template-areas:
+        "head head"
+        "left right1"
+        "left right2";
     }
 
     .news h2 {
         /* name the area */
+        grid-area: head;
     }
 
     .news .left {
         /* name the area */
+        grid-area: left;
+    }
+
+    .news .right1{
+        grid-area: right1;
+    }
+
+    .news .right2{
+        grid-area: right2;
     }
 
     .news .right {
         /* use grid to create two columns */
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
     }
 
     .news .right img {
-        
+        grid-row: 1/span 2;
     }
 
     .copy {
